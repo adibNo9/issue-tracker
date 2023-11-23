@@ -5,7 +5,7 @@ import { Button } from "@radix-ui/themes";
 const issues = () => {
   return (
     <div>
-      <Button>new issue</Button>
+      <Button>New Issue</Button>
     </div>
   );
 };
