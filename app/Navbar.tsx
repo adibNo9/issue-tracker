@@ -16,7 +16,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="flex space-x-6 px-6 h-14 items-center border-b mb-6">
+    <nav className="flex space-x-5 px-5 h-14 items-center border-b mb-5">
       <Link href="/">
         <HiBugAnt />
       </Link>
