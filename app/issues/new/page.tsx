@@ -1,20 +1,7 @@
-"use client";
-import "easymde/dist/easymde.min.css";
-
-import SimpleMDE from "react-simplemde-editor";
-
-import { Button, TextField } from "@radix-ui/themes";
+import IssueForm from "@/app/components/IssueForm";
 
 const NewIssue = () => {
-  return (
-    <div className="max-w-xl space-y-3">
-      <TextField.Root>
-        <TextField.Input placeholder="Title" />
-      </TextField.Root>
-      <SimpleMDE />
-      <Button>Submit New Issue</Button>
-    </div>
-  );
+  return <IssueForm />;
 };
 
 export default NewIssue;
