@@ -7,8 +7,8 @@ import { Box } from "@radix-ui/themes";
 const LoadingNewIssuePage = () => {
   return (
     <Box className="max-w-xl">
-      <Skeleton height="2rem" className="mb-2" />
-      <Skeleton height="20rem" />
+      <Skeleton height="2rem" />
+      <Skeleton height="23rem" className="mt-3" />
     </Box>
   );
 };

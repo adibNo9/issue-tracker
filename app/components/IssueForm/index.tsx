@@ -4,9 +4,10 @@ import "easymde/dist/easymde.min.css";
 import { useState } from "react";
 
 import axios from "axios";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
-import SimpleMDE from "react-simplemde-editor";
+import Skeleton from "react-loading-skeleton";
 import { z } from "zod";
 
 import { createIssueSchema } from "@/app/validationSchemas";
@@ -15,6 +16,11 @@ import { Button, Callout, TextField } from "@radix-ui/themes";
 
 import ErrorMessage from "../ErrorMessage";
 import Spinner from "../Spinner";
+
+const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
+  ssr: false,
+  loading: () => <Skeleton height="23rem" className="mt-3" />,
+});
 
 type IssueForm = z.infer<typeof createIssueSchema>;
 
@@ -62,7 +68,7 @@ const IssueForm = () => {
           render={({ field }) => (
             <SimpleMDE placeholder="Description " {...field} />
           )}
-        ></Controller>
+        />
         <ErrorMessage>{errors.description?.message}</ErrorMessage>
 
         <Button>Submit New Issue {isSubmitting && <Spinner />}</Button>
