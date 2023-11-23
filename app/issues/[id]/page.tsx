@@ -3,7 +3,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 
-import IssueStatusBadge from "@/app/components/IssueStatusBadge";
+import { IssueStatusBadge } from "@/app/components";
 import prisma from "@/prisma/client";
 import { Card, Flex, Heading, Text } from "@radix-ui/themes";
 
