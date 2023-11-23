@@ -1,6 +1,7 @@
 import React from "react";
 
 import delay from "delay";
+import Link from "next/link";
 
 import prisma from "@/prisma/client";
 import { Table } from "@radix-ui/themes";
@@ -31,7 +32,7 @@ const issues = async () => {
           {issues.map((issue) => (
             <Table.Row key={issue.id}>
               <Table.Cell>
-                {issue.title}
+                <Link href={`/issues/${issue.id}`}> {issue.title}</Link>
                 <div className="block md:hidden">
                   <IssueStatusBadge status={issue.status} />
                 </div>
