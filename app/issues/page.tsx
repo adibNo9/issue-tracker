@@ -7,9 +7,9 @@ import { Button } from "@radix-ui/themes";
 const issues = () => {
   return (
     <div>
-      <Button>
-        <Link href="/issues/new">New Issue</Link>
-      </Button>
+      <Link href="/issues/new">
+        <Button className="cursor-pointer">New Issue</Button>
+      </Link>
     </div>
   );
 };
