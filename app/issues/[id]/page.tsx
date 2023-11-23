@@ -1,6 +1,7 @@
 import React from "react";
 
 import { notFound } from "next/navigation";
+import Markdown from "react-markdown";
 
 import IssueStatusBadge from "@/app/components/IssueStatusBadge";
 import prisma from "@/prisma/client";
@@ -26,8 +27,8 @@ const IssueDetailPage = async ({ params }: Props) => {
         <IssueStatusBadge status={issue.status} />
         <Text>{issue.createAt.toDateString()}</Text>
       </Flex>
-      <Card>
-        <Text as="p">{issue.description}</Text>
+      <Card className="prose" mt="5">
+        <Markdown>{issue.description}</Markdown>
       </Card>
     </>
   );
