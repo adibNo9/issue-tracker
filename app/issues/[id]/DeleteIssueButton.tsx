@@ -1,16 +1,33 @@
-import Link from "next/link";
-
+"use client";
 import { TrashIcon } from "@radix-ui/react-icons";
-import { Button } from "@radix-ui/themes";
+import { AlertDialog, Button, Flex } from "@radix-ui/themes";
 
-const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
+const DeleteIssueButton = () => {
   return (
-    <Link href={`/issues/${issueId}/edit`}>
-      <Button color="red" className="w-full">
-        <TrashIcon />
-        Delete Issue
-      </Button>
-    </Link>
+    <AlertDialog.Root>
+      <AlertDialog.Trigger>
+        <Button color="red" className="w-full">
+          <TrashIcon />
+          Delete Issue
+        </Button>
+      </AlertDialog.Trigger>
+      <AlertDialog.Content>
+        <AlertDialog.Title>Confirm Deletion</AlertDialog.Title>
+        <AlertDialog.Description>
+          Are you sure to delete this issue?
+        </AlertDialog.Description>
+        <Flex mt="4" gap="3">
+          <AlertDialog.Cancel>
+            <Button variant="soft" color="gray">
+              Cancel
+            </Button>
+          </AlertDialog.Cancel>
+          <AlertDialog.Action>
+            <Button color="red">Delete Issue</Button>
+          </AlertDialog.Action>
+        </Flex>
+      </AlertDialog.Content>
+    </AlertDialog.Root>
   );
 };
 
