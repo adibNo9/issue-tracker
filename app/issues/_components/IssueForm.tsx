@@ -4,21 +4,16 @@ import "easymde/dist/easymde.min.css";
 import { useState } from "react";
 
 import axios from "axios";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
+import SimpleMdeReact from "react-simplemde-editor";
 import { z } from "zod";
 
-import { ErrorMessage, Skeleton, Spinner } from "@/app/components";
+import { ErrorMessage, Spinner } from "@/app/components";
 import { issueSchema } from "@/app/validationSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Issue } from "@prisma/client";
 import { Button, Callout, TextField } from "@radix-ui/themes";
-
-const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
-  ssr: false,
-  loading: () => <Skeleton height="23rem" className="mt-3" />,
-});
 
 type IssueFormInterface = z.infer<typeof issueSchema>;
 
@@ -71,7 +66,7 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
           control={control}
           defaultValue={issue?.description}
           render={({ field }) => (
-            <SimpleMDE placeholder="Description " {...field} />
+            <SimpleMdeReact placeholder="Description " {...field} />
           )}
         />
         <ErrorMessage>{errors.description?.message}</ErrorMessage>
