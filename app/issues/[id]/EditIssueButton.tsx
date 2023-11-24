@@ -6,7 +6,7 @@ import { Button } from "@radix-ui/themes";
 const EditIssueButton = ({ issueId }: { issueId: number }) => {
   return (
     <Link href={`/issues/${issueId}/edit`}>
-      <Button>
+      <Button color="indigo" className="w-full">
         <Pencil2Icon />
         Edit Issue
       </Button>
