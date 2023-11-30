@@ -1,9 +1,5 @@
-interface Props {
-  searchParams: {
-    page: string;
-  };
-}
+import LatestIssues from './LatestIssues';
 
-export default function Home({ searchParams }: Props) {
-  return <div>Dashboard</div>;
+export default function Home() {
+  return <LatestIssues />;
 }
