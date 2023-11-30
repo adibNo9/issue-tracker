@@ -1,3 +1,5 @@
+import { Metadata } from 'next';
+
 import prisma from '@/prisma/client';
 import {
   Flex,
@@ -25,3 +27,8 @@ export default async function Home() {
     </Grid>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Issue Tracker - Dashboard",
+  description: "View a summary of project issues",
+};
