@@ -2,15 +2,18 @@ import React from "react";
 
 import Link from "next/link";
 
-import { Button } from "@radix-ui/themes";
+import { Button, Flex } from "@radix-ui/themes";
+
+import IssueFilter from "./IssueFilter";
 
 const IssueActions = () => {
   return (
-    <div className="mb-5">
+    <Flex mb="5" justify="between">
+      <IssueFilter />
       <Link href="/issues/new">
         <Button>New Issue</Button>
       </Link>
-    </div>
+    </Flex>
   );
 };
 
